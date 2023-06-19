@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bard Voice Assistant</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+  
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 100px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+           
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            height: 30px;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f1f1f1;
+        }
+
+        #response {
+            margin-top: 20px;
+            padding: 1px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            color: #333;
+            transition: opacity 0.3s ease;
+        }
+
+        #listen-btn {
+  /* Existing styles for custom-btn btn-3 */
+  width: 130px;
+  height: 50px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+              7px 7px 20px 0px rgba(0,0,0,.1),
+              4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+#listen-btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#listen-btn:before,
+#listen-btn:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgb(218, 220, 222);
+  transition: all 0.3s ease;
+}
+
+#listen-btn:before {
+  height: 0%;
+  width: 2px;
+}
+
+#listen-btn:after {
+  width: 0%;
+  height: 2px;
+}
+
+#listen-btn:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+#listen-btn:hover:before {
+  height: 100%;
+}
+
+#listen-btn:hover:after {
+  width: 100%;
+}
+
+#listen-btn span:hover {
+  color: rgb(216, 221, 227);
+}
+
+#listen-btn span:before,
+#listen-btn span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+
+#listen-btn span:before {
+  width: 2px;
+  height: 0%;
+}
+
+#listen-btn span:after {
+  width: 0%;
+  height: 2px;
+}
+
+#listen-btn span:hover:before {
+  height: 100%;
+}
+
+#listen-btn span:hover:after {
+  width: 100%;
+}
+
+
+        #assistant {
+            margin-top: 20px;
+            width: 100px;
+            height: 100px;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            transition: transform 0.3s ease;
+        }
+
+        .animated {
+            animation-name: animatedAssistant;
+        }
+
+        @keyframes animatedAssistant {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+          
+        <style>
+        
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f1effb;
+  color: black;
+  text-align: center;
+  display: grid;
+  
+  height: 100vh;
+  align-items: center;
+}
+.status{
+  margin-bottom:2.5rem;
+  display: flex;
+    place-items: center;
+  justify-content: center;
+}
+.status span:first-child{
+  
+  background:red;
+  border-radius:50%;
+  width:1rem;
+  height:1rem;
+  margin-right:.4rem;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+svg {
+  fill: #fff;
+  width: 128px;
+  height: 128px;
+}
+#timer {
+  padding: 1.2rem 0;
+  font-size: 1.5rem;
+}
+.animate {
+  margin:auto;
+  background: linear-gradient(45deg, #2551da, #4a6ee0);
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  align-items: center;
+  box-shadow: #ded8fb5e 1rem 1rem 2rem inset,
+    rgba(52, 52, 53, 0.27) -1rem -1rem 2rem inset;
+}
+.animate::before {
+  position: absolute;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  content: "";
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  animation: animate 2s infinite 1s reverse;
+}
+.animate::after {
+  position: absolute;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  content: "";
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  animation: animate 2.5s infinite 1.5s reverse;
+}
+
+
+.animate svg {
+  animation: micSpeakingAnimation 1s infinite;
+}
+
+@keyframes micSpeakingAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes animate {
+  0% {
+    box-shadow: #7e63ffad 0px 0px 0px 0px, #ded8fb5e 1rem 1rem 2rem inset,
+      rgba(52, 52, 53, 0.27) -1rem -1rem 2rem inset;
+  }
+  100% {
+    box-shadow: transparent 0px 0px 0px 36px, #ded8fb5e 1rem 1rem 2rem inset,
+      rgba(52, 52, 53, 0.27) -1rem -1rem 2rem inset;
+  }
+}
+
+@keyframes glow {
+  0% {
+    background: red;
+  }
+  50% {
+    background: hsl(0 100% 34% / 0.8);
+  }
+  100% {
+    background: red;
+  }
+}
+
+
+        </style>
+    </style>
+      
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bard Voice Assistant</h1>
+        <h2>Ask a Question</h2>
+        <form id="ask-form">
+            <input type="text" id="prompt" name="prompt" placeholder="Enter your question" required>
+            <button type="submit">Ask</button>
+        </form>
+        <div id="response"></div>
+        <h2>Speak a Prompt</h2>
+        <form id="speak-form">
+            <input type="text" id="speak-prompt" name="prompt" placeholder="Enter your prompt" required>
+            <button type="submit">Speak</button>
+        </form>
+        <h2>Listen for User Input</h2>
+        <button id="listen-btn">Listen</button>
+        
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var listening = false;
+            var recognition;
+
+            // Handle form submission for asking a question
+            $('#ask-form').submit(function (event) {
+                event.preventDefault();
+                var prompt = $('#prompt').val();
+                $.ajax({
+                    url: '/ask',
+                    type: 'POST',
+                    data: { prompt: prompt },
+                    success: function (response) {
+                        $('#response').text(response.response);
+                        animateAssistant();
+                        speak(response.response);
+                    }
+                });
+            });
+
+            // Handle form submission for speaking a prompt
+            $('#speak-form').submit(function (event) {
+                event.preventDefault();
+                var prompt = $('#speak-prompt').val();
+                $.ajax({
+                    url: '/speak',
+                    type: 'POST',
+                    data: { prompt: prompt },
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+            });
+
+            // Handle button click for listening to user input
+            $('#listen-btn').click(function () {
+                if (listening) {
+                    stopListening();
+                } else {
+                    startListening();
+                }
+            });
+
+            // Start listening for user input
+            function startListening() {
+                $('#listen-btn').addClass('animated');
+                listening = true;
+                recognition = new webkitSpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+                recognition.start();
+
+                recognition.onresult = function (event) {
+                    var result = event.results[event.results.length - 1];
+                    var transcript = result[0].transcript;
+                    $('#prompt').val(transcript);
+                    if (result.isFinal) {
+                        stopListening();
+                        submitQuestion();
+                    }
+                };
+            }
+
+            // Stop listening for user input
+            function stopListening() {
+                $('#listen-btn').removeClass('animated');
+                listening = false;
+                recognition.stop();
+            }
+
+            // Submit the question
+            function submitQuestion() {
+                var prompt = $('#prompt').val();
+                $.ajax({
+                    url: '/ask',
+                    type: 'POST',
+                    data: { prompt: prompt },
+                    success: function (response) {
+                        $('#response').text(response.response);
+                        animateAssistant();
+                        speak(response.response);
+                    }
+                });
+            }
+
+            // Animate the assistant
+            function animateAssistant() {
+                $('#assistant').addClass('animated');
+                setTimeout(function () {
+                    $('#assistant').removeClass('animated');
+                }, 1000);
+            }
+
+            // Speak the text using text-to-speech
+            function speak(text) {
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = text;
+                window.speechSynthesis.speak(msg);
+            }
+        });
+    </script>
+</body>
+
+    <div class="container">
+        <h3 class="status">
+        <div class="animate">
+      
+          
+      <svg height="512px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" <g><path d="M256,32c-43.7,0-79,37.5-79,83.5V270c0,46,35.3,83.5,79,83.5c43.7,0,79-37.5,79-83.5V115.5C335,69.5,299.7,32,256,32z    M319,270c0,37.2-28.3,67.5-63,67.5c-34.7,0-63-30.3-63-67.5V115.5c0-37.2,28.3-67.5,63-67.5c34.7,0,63,30.3,63,67.5V270z"/><path d="M367,192v79.7c0,60.2-49.8,109.2-110,109.2c-60.2,0-110-49-110-109.2V192h-19v79.7c0,67.2,53,122.6,120,127.5V462h-73v18   h161v-18h-69v-62.8c66-4.9,117-60.3,117-127.5V192H367z"/></g></svg>
+
+</html>
