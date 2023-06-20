@@ -82,13 +82,20 @@
         }
 
         #response {
-            margin-top: 20px;
-            padding: 1px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-            color: #333;
-            transition: opacity 0.3s ease;
-        }
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #8194db;
+    border-radius: 5px;
+    color: #030303;
+    transition: opacity 0.3s ease;
+    white-space: pre;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+
 
         #listen-btn {
   /* Existing styles for custom-btn btn-3 */
@@ -337,18 +344,13 @@ svg {
 <body>
     <div class="container">
         <h1>Bard Voice Assistant</h1>
-        <h2>Ask a Question</h2>
+        <h2>Ask a Question❓</h2>
         <form id="ask-form">
-            <input type="text" id="prompt" name="prompt" placeholder="Enter your question" required>
+            <input type="text" id="prompt" name="prompt" placeholder="Enter your question" style="font-weight: bold;" required>
             <button type="submit">Ask</button>
         </form>
         <div id="response"></div>
-        <h2>Speak a Prompt</h2>
-        <form id="speak-form">
-            <input type="text" id="speak-prompt" name="prompt" placeholder="Enter your prompt" required>
-            <button type="submit">Speak</button>
-        </form>
-        <h2>Listen for User Input</h2>
+        <h2>Say Something 😃</h2>
         <button id="listen-btn">Listen</button>
         
     </div>
