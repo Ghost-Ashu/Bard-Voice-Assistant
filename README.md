@@ -1,4 +1,4 @@
-<h1 align="center">Flask Chatbot Web Application</h1>
+<h1 align="center">Bard Assistant Web Application 😃</h1>
 
 <p align="center">
   <img src="https://your-image-url.com/your-logo.png" alt="Logo" width="200" height="200">
