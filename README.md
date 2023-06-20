@@ -4,7 +4,11 @@
 
 
 
-https://github.com/Ghost-Ashu/Bard-Voice-Assistant/assets/41056892/b9352fd7-df2e-4484-b33e-2bf223f3b9df
+
+
+
+https://github.com/Ghost-Ashu/Bard-Voice-Assistant/assets/41056892/af6bd22c-4b81-4ad3-9784-d64e2e11bceb
+
 
 
 
