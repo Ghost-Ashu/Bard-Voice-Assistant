@@ -1,12 +1,11 @@
 <h1 align="center">Bard Voice Assistant Web Application😃</h1>
 
 
-<div style="position:relative;width:fit-content;height:fit-content;">
-    <a style="position:absolute;top:20px;right:1rem;opacity:0.8;" href="https://clipchamp.com/watch/f3upHwgtMNk?utm_source=embed&utm_medium=embed&utm_campaign=watch">
-        <img style="height:22px;" src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
-    </a>
-    <iframe allow="autoplay;" allowfullscreen style="border:none" src="https://clipchamp.com/watch/f3upHwgtMNk/embed" width="640" height="360"></iframe>
-</div>
+
+
+
+https://github.com/Ghost-Ashu/Bard-Voice-Assistant/assets/41056892/b9352fd7-df2e-4484-b33e-2bf223f3b9df
+
 
 
 
